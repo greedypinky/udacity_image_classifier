@@ -169,3 +169,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# do not checkin checkpoint file
+save_model/checkpoint.pth
+*.pth
