@@ -333,6 +333,6 @@ def main():
     saved_model = load_checkpoint_with_file(checkpointfile)
     print("after model is loaded!")
 
-    # Call to main function to run the program
+# Call to main function to run the program
 if __name__ == '__main__':
     main()
