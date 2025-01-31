@@ -164,9 +164,9 @@ def train(model, dataloader, testloader, learning_rate=0.001, epochs=5, device_m
 
     epochs = epochs
     steps = 0
-    running_loss = 0
     print_every = 40
     for epoch in range(epochs):
+        running_loss = 0
         for images, labels in dataloader:
             steps += 1
 
@@ -332,6 +332,7 @@ def main():
     print(checkpointfile)
     saved_model = load_checkpoint_with_file(checkpointfile)
     print("after model is loaded!")
+
 
 # Call to main function to run the program
 if __name__ == '__main__':

@@ -107,6 +107,10 @@ def check_training_command_line_arguments(in_arg):
     if (in_arg.hidden_units <= 0 or in_arg.hidden_units > 2046):
         raise ValueError(
             "hidden_units must be between 1 and 2046. Tensor creation does not allow negative dimension")
+
+    if (in_arg.save_dir is None or in_arg.save_dir == ""):
+        in_arg.save_dir = "save_model"
+
     else:
         # prints command line args
         print("Command Line Arguments:\n data_dir =", in_arg.data_dir,
@@ -136,7 +140,8 @@ def check_predict_command_line_arguments(in_arg):
         try:
             top_k = int(in_arg.top_k)
             if top_k > 10 or top_k == 0:
-                print("Invalid value for top_k. It must be between 1 and 10.")
+                raise ValueError(
+                    "Invalid value for top_k. It must be between 1 and 10.")
         except ValueError:
             print("Invalid value for top_k. It must be an integer.")
 
